@@ -1,4 +1,15 @@
+<header class="intro">
+    <%= render "partials/header" %>
+    <div class="greeting" id="home">
+      <div class="greeting-wrapper">
+          <h1>Welcome to Shroom Hunters</h1>
+          <h3>Helping you find your next tasty morsels!</h3>
+          <a href="/services" target="_parent"><button id="learn-more">Learn More</button></a>
+      </div>
+    </div>
+  </header>
 
 <section class="welcome-msg">
-  <h3>Welcome to our site!</h3>
+  <h3>Take a look at our mushroom database!</h3>
+  <%= link_to "Click here", database_path %>
 </section>

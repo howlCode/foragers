@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  genus: MyText
+  description: MyText
+  edible: false
+  image: 
+
+two:
+  name: MyText
+  genus: MyText
+  description: MyText
+  edible: false
+  image: 

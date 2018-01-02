@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get '/about',     to: 'welcome#about'
   get '/contact',   to: 'welcome#contact'
 
+  get '/database',  to: 'database#index'
+
   root 'welcome#index'
 end
