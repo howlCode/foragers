@@ -44,7 +44,7 @@ class ShroomsController < ApplicationController
 
   private
     def shroom_params
-      params.require(:shroom).permit(:name, :description)
+      params.require(:shroom).permit(:name, :description, :edible, :genus, :image)
     end
 
 end

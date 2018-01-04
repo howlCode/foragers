@@ -1,25 +1,43 @@
 
-<section>
-    <h1>Welcome to the Shroom Hunters Database!</h1>
-    <h3>Our user-contributed database is ever growing!</h3>
-    <%= link_to "Add a shroom to the database!", new_shroom_path %>
+<section class="section">
+  <div class="container has-text-centered">
+    <h1 class="title">Welcome to the Shroom Hunters Database!</h1>
+    <h3 class="subtitle">Our user-contributed database is ever growing!</h3>
+      <span class="button is-large"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
     <hr>
-
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Text</th>
-      </tr>
-     
-      <% @shrooms.each do |shroom| %>
-        <tr>
-          <td><%= shroom.name %></td>
-          <td><%= shroom.description %></td>
-          <td><%= link_to 'Show', shroom_path(shroom) %></td>
-          <td><%= link_to 'Edit', edit_shroom_path(shroom) %></td>
-        </tr>
-      <% end %>
-    </table>
-    <hr>
-    
+  </div>
+  
+  <div class="container is-fluid"> 
+    <div class="box">
+    <% @shrooms.each do |shroom| %>
+      <article class="media">
+        <div class="media-left">
+          <div class="image">
+          <%= link_to shroom_path(shroom) do %> 
+            <%= image_tag shroom.image.url(:medium) %>
+          <% end %>
+          </div>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p class="title"><%= shroom.name %></p>
+          <p class="subtitle"><%= shroom.genus %></p>   
+        <% if shroom.edible == "true" %>
+          <div class="tags">
+            <span class="tag is-success is-medium edible-tag">Edible!</span>
+          </div>         
+        <% else %>
+          <div class="tags">
+            <span class="tag is-danger is-medium edible-tag">Not Edible!</span>
+          </div> 
+        <% end %>
+        <div class="content is-medium">
+           <%= shroom.description %>
+        </div>
+        <%= link_to 'Edit', edit_shroom_path(shroom) %>
+      </div>
+      </article>
+    <% end %> 
+  </div>
+</div>
 </section>

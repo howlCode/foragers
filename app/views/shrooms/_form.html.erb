@@ -1,32 +1,81 @@
-<%= form_with model: @shroom do |form| %>
+<section class="section">
+  <div class="container">
+  <%= form_for @shroom, html: {class: "field"} do |form| %>
 
     <% if @shroom.errors.any? %>
       <div id="error_explanation">
-        <h2>
-          <%= pluralize(@shroom.errors.count, "error") %>
+        <h2 class="title">
+          <%= pluralize(@shroom.errors.count, "Error") %>
           prohibited this mushroom from being saved to the database:
-        </h2>
-        <ul>
-          <% @shroom.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
+        </h2>       
+        <% @shroom.errors.full_messages.each do |msg| %>
+          <span class="subtitle"><%= msg %></span>
+        <% end %>
       </div>
     <% end %>
 
-    <p>
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </p>
+    <div class="field">
+      <div class="control">
+        <%= form.label :name, class: "label" %>
+      </div>     
+      <div class="control">
+        <%= form.text_field :name, class: "input" %>
+      </div>
+    </div>
+    
+    <div class="field">
+      <div class="control">
+        <%= form.label :description, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_area :description, class: "input" %>
+      </div>    
+    </div>
 
-    <p>
-      <%= form.label :description %>
-      <%= form.text_area :description %>
-    </p>
+    <div class="field">
+      <div class="control">
+        <%= form.label :genus, class: "label" %>
+        <p class="help">If you know it!</p>
+      </div>
+      <div class="control">
+        <%= form.text_field :genus, class: "input" %>
+      </div> 
+    </div>
 
-    <p>
-      <%= form.submit "Add Shroom" %>
-    </p>
+    <div class="field is-grouped">
+      <div class="control">
+        <%= form.radio_button :edible, "true", :checked => true, class: "radio" %>
+      </div>
+      <div class="control">
+        <%= form.label :edible, "Edible", :value => "true", class: "radio" %>
+      </div>
+      <div class="control"> 
+        <%= form.radio_button :edible, "false", class: "radio" %>
+      </div>
+      <div class="control">
+        <%= form.label :edible, "Not Edible", :value => "false", class: "radio" %>
+      </div>   
+    </div>
 
-<% end %>
+     <div class="field">
+      <div class="control">
+        <%= form.label "Upload an Image", class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.file_field :image %>
+      </div> 
+    </div>
+    
+
+    <div class="field">
+      <div class="control">
+        <%= form.submit "Submit", class: "button" %>
+      </div>
+    </div>
+
+  <% end %>
+
+ </div>
+</section>
+
 

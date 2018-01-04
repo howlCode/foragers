@@ -1,18 +1,27 @@
-<section>
-    <h1>Welcome to the Shroom Hunters Database!</h1>
-    <h3>Our user-contributed database is ever growing!</h3>
-    
+<section class="section">
 
-<p>
-  <strong>Title:</strong>
-  <%= @shroom.name %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @shroom.description %>
-</p>
- 
-<%= link_to 'Back', shrooms_path %>
-    
+  <div class="container is-fluid has-text-centered">
+    <h1 class="title"><%= @shroom.name %></h1>
+    <h2 class="subtitle"><%= @shroom.genus %></h2>
+    <% if @shroom.edible == "true" %>
+      <div class="tags">
+        <span class="tag is-success is-large edible-tag-show">Edible!</span>
+      </div>     
+    <% else %>
+      <div class="tags">
+        <span class="tag is-danger is-large edible-tag-show">Not Edible!</span>
+      </div>
+    <% end %>
+    <div class="image">
+      <%= image_tag @shroom.image.url %>
+    </div>
+    <hr>
+    <div class="container is-fluid">
+      <div class="content is-large">
+        <%= @shroom.description %>
+      </div>
+    </div>
+    <br>
+    <%= link_to 'Back', shrooms_path %>
+  </div> 
 </section>
