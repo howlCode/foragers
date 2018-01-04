@@ -1,7 +1,9 @@
 
-<section class="database">
+<section>
     <h1>Welcome to the Shroom Hunters Database!</h1>
     <h3>Our user-contributed database is ever growing!</h3>
+    <%= link_to "Add a shroom to the database!", new_shroom_path %>
+    <hr>
 
     <table>
       <tr>
@@ -13,11 +15,11 @@
         <tr>
           <td><%= shroom.name %></td>
           <td><%= shroom.description %></td>
-          <td><%= link_to 'Show', database_path(shroom) %></td>
-          <td><%= link_to 'Edit', edit_database_path(shroom) %></td>
+          <td><%= link_to 'Show', shroom_path(shroom) %></td>
+          <td><%= link_to 'Edit', edit_shroom_path(shroom) %></td>
         </tr>
       <% end %>
     </table>
-    <hr class="divider">
-    <%= link_to "Add a shroom to the database!", new_database_path %>
+    <hr>
+    
 </section>

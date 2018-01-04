@@ -1,9 +1,9 @@
-class DatabaseController < ApplicationController
+class ShroomsController < ApplicationController
   def index
     @shrooms = Shroom.all
   end
 
-  def show 
+  def show
     @shroom = Shroom.find(params[:id])
   end
 
@@ -20,7 +20,7 @@ class DatabaseController < ApplicationController
 
     if @shroom.save
       redirect_to @shroom
-    else 
+    else
       render 'new'
     end
   end
@@ -34,7 +34,14 @@ class DatabaseController < ApplicationController
       render 'edit'
     end
   end
-  
+
+  def destroy
+    @shroom = Shroom.find(params[:id])
+    @shroom.destroy
+
+    redirect_to shrooms_path
+  end
+
   private
     def shroom_params
       params.require(:shroom).permit(:name, :description)

@@ -1,5 +1,4 @@
-
-<%= form_with(model: @shroom) do |form| %>
+<%= form_with model: @shroom do |form| %>
 
     <% if @shroom.errors.any? %>
       <div id="error_explanation">
@@ -16,7 +15,7 @@
     <% end %>
 
     <p>
-      <%= form.label :name %><br>
+      <%= form.label :name %>
       <%= form.text_field :name %>
     </p>
 
@@ -26,7 +25,8 @@
     </p>
 
     <p>
-      <%= form.submit %>
+      <%= form.submit "Add Shroom" %>
     </p>
 
 <% end %>
+

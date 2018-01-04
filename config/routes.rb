@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/about',     to: 'welcome#about'
   get '/contact',   to: 'welcome#contact'
 
-  resources :database
+  resources :shrooms
 
   root 'welcome#index'
 end

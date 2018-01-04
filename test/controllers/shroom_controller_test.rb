@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DatabaseControllerTest < ActionDispatch::IntegrationTest
+class ShroomControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
