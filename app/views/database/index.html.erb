@@ -1,0 +1,23 @@
+
+<section class="database">
+    <h1>Welcome to the Shroom Hunters Database!</h1>
+    <h3>Our user-contributed database is ever growing!</h3>
+
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+      </tr>
+     
+      <% @shrooms.each do |shroom| %>
+        <tr>
+          <td><%= shroom.name %></td>
+          <td><%= shroom.description %></td>
+          <td><%= link_to 'Show', database_path(shroom) %></td>
+          <td><%= link_to 'Edit', edit_database_path(shroom) %></td>
+        </tr>
+      <% end %>
+    </table>
+    <hr class="divider">
+    <%= link_to "Add a shroom to the database!", new_database_path %>
+</section>
