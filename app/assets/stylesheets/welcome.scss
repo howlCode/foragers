@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navbar-brand {
+	margin-left: 50px;
+	font-size: 1.3rem;
+	text-transform: uppercase;
+}
+
 .shroom-basket {
 	background-image: url("basket-shrooms.jpeg");
 	background-size: cover;
