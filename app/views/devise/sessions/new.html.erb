@@ -1,0 +1,42 @@
+<section class="section">
+  <div class="container has-text-centered">
+    <h2 class="title">Log in</h2>
+  </div>
+
+  <div class="container is-fluid">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <div class="control">
+          <%= f.label :email, class: "label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <%= f.label :password, class: "label" %>
+          <%= f.password_field :password, autocomplete: "off", class: "input" %>
+        </div>  
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <div class="control">
+            <%= f.check_box :remember_me, class: "checkbox" %>
+            <%= f.label :remember_me, class: "label" %>
+          </div>
+        </div>
+      <% end -%>
+
+      <div class="container is-fluid has-text-centered">
+        <div class="actions">
+        <%= f.submit "Log in", class: "button is-success" %><br>
+        <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+
+

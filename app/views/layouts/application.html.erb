@@ -12,6 +12,8 @@
 
   <body>
     <%= render "partials/header" %>
+    <p class="notice has-text-success"><%= notice %></p>
+    <p class="alert has-text-danger"><%= alert %></p>
     <%= yield %>
     <%= render "partials/footer" %>
   </body>

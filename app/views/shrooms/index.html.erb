@@ -3,7 +3,13 @@
   <div class="container has-text-centered">
     <h1 class="title">Welcome to the Shroom Hunters Database!</h1>
     <h3 class="subtitle">Our user-contributed database is ever growing!</h3>
+    <% if user_signed_in? %>
       <span class="button is-large"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
+    <% else %>
+      <%= link_to user_session_path do %>
+        <span class="button is-large is-link">Log in to add a mushroom to the database!</span>
+      <% end %>
+    <% end %>
     <hr>
   </div>
   
@@ -34,7 +40,12 @@
         <div class="content is-medium">
            <%= shroom.description %>
         </div>
-        <%= link_to 'Edit', edit_shroom_path(shroom) %>
+        <% if current_user != nil %>
+        <% if shroom.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_shroom_path(shroom) %>
+          <%= link_to 'Delete', shroom_path(shroom),  method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+        <% end %>
       </div>
       </article>
     <% end %> 

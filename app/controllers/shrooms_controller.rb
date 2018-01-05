@@ -1,4 +1,6 @@
 class ShroomsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  
   def index
     @shrooms = Shroom.all
   end
@@ -8,7 +10,7 @@ class ShroomsController < ApplicationController
   end
 
   def new
-    @shroom = Shroom.new
+    @shroom = current_user.shrooms.build
   end
 
   def edit
@@ -16,7 +18,7 @@ class ShroomsController < ApplicationController
   end
 
   def create
-    @shroom = Shroom.new(shroom_params)
+    @shroom = current_user.shrooms.build(shroom_params)
 
     if @shroom.save
       redirect_to @shroom
