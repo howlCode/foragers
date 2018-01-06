@@ -1,10 +1,10 @@
 
 <section class="section">
-  <div class="container has-text-centered">
+  <div class="container  is-fluid has-text-centered">
     <h1 class="title">Welcome to the Shroom Hunters Database!</h1>
     <h3 class="subtitle">Our user-contributed database is ever growing!</h3>
     <% if user_signed_in? %>
-      <span class="button is-large"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
+      <span class="button is-medium"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
     <% else %>
       <%= link_to user_session_path do %>
         <span class="button is-large is-link">Log in to add a mushroom to the database!</span>
@@ -12,43 +12,36 @@
     <% end %>
     <hr>
   </div>
-  
-  <div class="container is-fluid"> 
-    <div class="box">
-    <% @shrooms.each do |shroom| %>
-      <article class="media">
-        <div class="media-left">
-          <div class="image">
+
+    <div class="grid">
+      <% @shrooms.each do |shroom| %>
+      <div class="grid-item">
+        <div class="grid-img">
           <%= link_to shroom_path(shroom) do %> 
-            <%= image_tag shroom.image.url(:medium) %>
-          <% end %>
-          </div>
+          <%= image_tag shroom.image.url(:medium) %>
+        <% end %>
         </div>
-        <div class="media-content">
-          <div class="content">
-            <p class="title"><%= shroom.name %></p>
-          <p class="subtitle"><%= shroom.genus %></p>   
         <% if shroom.edible == "true" %>
           <div class="tags">
             <span class="tag is-success is-medium edible-tag">Edible!</span>
           </div>         
-        <% else %>
+          <% else %>
           <div class="tags">
             <span class="tag is-danger is-medium edible-tag">Not Edible!</span>
           </div> 
         <% end %>
-        <div class="content is-medium">
-           <%= shroom.description %>
+        <h1 class="title"><%= shroom.name %></h1> 
+        <h2 class="subtitle"><%= shroom.genus %></h2> 
+        <div class="grid-description">
+          <p><%= shroom.description %></p>
         </div>
         <% if current_user != nil %>
         <% if shroom.user_id == current_user.id %>
-          <%= link_to 'Edit', edit_shroom_path(shroom) %>
-          <%= link_to 'Delete', shroom_path(shroom),  method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to ' -- Edit', edit_shroom_path(shroom) %>
+          <%= link_to ' -- Delete', shroom_path(shroom),  method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
-        <% end %>
+      <% end %>
       </div>
-      </article>
-    <% end %> 
+  <% end %> 
   </div>
-</div>
 </section>

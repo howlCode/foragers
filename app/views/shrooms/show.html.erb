@@ -1,8 +1,8 @@
 <section class="section">
 
-  <div class="container is-fluid has-text-centered">
-    <h1 class="title"><%= @shroom.name %></h1>
-    <h2 class="subtitle"><%= @shroom.genus %></h2>
+  <div class="container is-fluid show-shroom">
+    <h1 class="title has-text-centered"><%= @shroom.name %></h1>
+    <h2 class="subtitle has-text-centered"><%= @shroom.genus %></h2>
     <% if @shroom.edible == "true" %>
       <div class="tags">
         <span class="tag is-success is-large edible-tag-show">Edible!</span>
@@ -19,9 +19,16 @@
     <div class="container is-fluid">
       <div class="content is-large">
         <%= @shroom.description %>
+        <br>
+        <%= link_to 'Back', shrooms_path %>
+        <% if current_user != nil %>
+        <% if @shroom.user_id == current_user.id %>
+          <%= link_to ' -- Edit', edit_shroom_path(@shroom) %>
+          <%= link_to ' -- Delete', shroom_path(@shroom),  method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+      <% end %>
       </div>
     </div>
-    <br>
-    <%= link_to 'Back', shrooms_path %>
+    
   </div> 
 </section>
