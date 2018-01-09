@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180105182253) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "shrooms", force: :cascade do |t|
     t.text "name"
     t.text "genus"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180105182253) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "edible"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_shrooms_on_user_id"
   end
 
@@ -44,4 +47,5 @@ ActiveRecord::Schema.define(version: 20180105182253) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "shrooms", "users"
 end
