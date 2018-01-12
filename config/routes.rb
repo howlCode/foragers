@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :shrooms
+  resources :products, :path => "shop"
   
   get 'welcome/index'
   get '/services',  to: 'welcome#services'

@@ -1,0 +1,17 @@
+<section class="section">
+	<div class="container is-fluid has-text-centered">
+		<h1 class="title">Shroom Shop</h1>
+	</div>
+	<br>
+	<div class="container is-fluid shop-grid">
+		<% @products.each do |product| %>
+		<div class="shop-grid-item">
+			<%= link_to product_path(product) do %>
+				<%= image_tag product.image.url(:thumb), class: "shop-image"  %>
+			<% end %>
+			<p class="subtitle"><%= product.name %>($<%= product.price %>)</p>
+			<p class="has-text-left"><%= product.description %></p>
+		</div>
+		<% end %>
+	</div>
+</section>
