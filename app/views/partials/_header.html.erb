@@ -2,7 +2,6 @@
     <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand logo">
         <a class="navbar-item" href="/">Shroom Hunters</a>
-        
         <button class="button navbar-burger is-dark" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
           <span></span>
           <span></span>
@@ -12,13 +11,6 @@
 
       <div class="navbar-menu">
         <div class="navbar-start">
-        </div>       
-        <div class="navbar-end">
-          <a class="navbar-item" href="/shrooms">Mushroom Database</a>
-          <a class="navbar-item" href="/shop">Shop</a>
-          <a class="navbar-item" href="/services">Services</a>
-          <a class="navbar-item" href="/education">Education</a>
-          <a class="navbar-item" href="/about">About</a>
           <% if user_signed_in? %>
         <%= link_to "My Profile", edit_user_registration_path, class: "navbar-item" %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-item" %>
@@ -26,6 +18,12 @@
         <%= link_to "Sign up", new_user_registration_path, class: "navbar-item" %>
         <%= link_to "Login", new_user_session_path, class: "navbar-item" %>
       <% end %>
+        </div>       
+        <div class="navbar-end">
+          <a class="navbar-item" href="/shrooms">Mushroom Database</a>
+          <a class="navbar-item" href="/shop">Shop</a>
+          <a class="navbar-item" href="/education">Education</a>
+          <a class="navbar-item" href="/about">About</a>
         </div>
       </div>
     </nav>
