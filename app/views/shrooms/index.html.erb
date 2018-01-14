@@ -4,10 +4,12 @@
     <h1 class="title">Welcome to the Shroom Hunters Database!</h1>
     <h3 class="subtitle">Our user-contributed database is ever growing!</h3>
     <% if user_signed_in? %>
-      <span class="button is-medium"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
+      <span class="button is-medium is-hidden-mobile"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
+      <span class="button is-small is-hidden-desktop is-hidden-tablet is-hidden-widescreen"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
     <% else %>
       <%= link_to user_session_path do %>
-        <span class="button is-large is-link">Log in to add a mushroom to the database!</span>
+        <span class="button is-medium is-hidden-mobile is-link">Log in to add a mushroom to the database!</span>
+        <span class="button is-small is-hidden-desktop is-hidden-tablet is-hidden-widescreen is-link">Log in to add a mushroom to the database!</span>
       <% end %>
     <% end %>
     <hr>

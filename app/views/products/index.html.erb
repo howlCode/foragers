@@ -9,7 +9,7 @@
 			<%= link_to product_path(product) do %>
 				<%= image_tag product.image.url(:thumb), class: "shop-image"  %>
 			<% end %>
-			<p class="subtitle"><%= product.name %>($<%= product.price %>)</p>
+			<p class="subtitle"><%= product.name %>(<%= number_to_currency product.price %>)</p>
 			<p class="has-text-left shop-grid-description"><%= product.description %></p>
 		</div>
 		<% end %>
