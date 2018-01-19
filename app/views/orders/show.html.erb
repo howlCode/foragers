@@ -1,0 +1,22 @@
+<section class="section">
+  <h1 class="has-text-centered title">Your Order</h1>
+  <div class="container is-fluid has-text-centered">
+    <h2 class="has-text-centered subtitle"><%= @order.user_id %></h2>
+    <p class="has-text-centered">Status: <%= @order.status.capitalize %></p>
+    <p class="has-text-centered">Total Items in Cart: <%= @order.order_items.count %></p>
+    <p class="has-text-centered">Total: <%= number_to_currency @order.total %></p>
+  </div>
+  <br>
+  <div class="container is-fluid shop-grid">
+      <% @order.order_items.each do |item| %>
+      <div class="shop-grid-item">        
+        <%= image_tag item.product.image.url(:medium), class: "shop-image" %>
+        <p><%= item.product.name %></p>
+        <p>Quantity: <%= item.quantity %></p>
+        <p>(Subtotal: <%= number_to_currency item.subtotal %>)</p>
+        <%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
