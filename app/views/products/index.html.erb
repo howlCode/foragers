@@ -1,6 +1,12 @@
-<section class="section">
+<section class="section"> 
+	<%= render 'shop-header' %>
 	<div class="container is-fluid has-text-centered">
 		<h1 class="title">Shroom Shop</h1>
+		<% if !user_signed_in? %>
+      <%= link_to user_session_path do %>
+        <span class="button is-medium is-link">Log in to create an order!</span>
+      <% end %>
+    <% end %> 
 	</div>
 	<br>
 	<div class="container is-fluid shop-grid">
@@ -11,8 +17,10 @@
 			<% end %>
 			<p class="subtitle"><%= product.name %>(<%= number_to_currency product.price %>)</p>
 			<p class="has-text-left shop-grid-description"><%= product.description %></p>
-			<p class="has-text-left"><%= print_stock(product.stock) %></p>
-			<%= button_to "Add to Cart", order_items_path(product_id: product.id), class: "button is-primary is-small" %>
+			<p class="has-text-left is-uppercase"><%= print_stock(product.stock) %></p>
+			<% if user_signed_in? %>
+				<%= button_to "Add to Cart", order_items_path(product_id: product.id), class: "button is-primary is-small" %>
+			<% end %>
 		</div>
 		<% end %>
 	</div>

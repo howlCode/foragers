@@ -1,0 +1,13 @@
+<header>
+  <div class="container has-text-right">
+    <% if @order.order_items %>
+      <h1 class="title">
+        <%= link_to @order, class: "is-link is-medium shopping-cart" do %>
+          Cart (<%= total_quantity(@order) %>)
+        <% end %>
+      </h1>
+    <% else %>
+      <h1 class="title shopping-cart">Cart (0)</h1>
+    <% end %>
+  </div>
+</header>

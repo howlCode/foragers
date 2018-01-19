@@ -2,10 +2,12 @@ class ProductsController < ApplicationController
 	
 	def index
 		@products = Product.all
+    @order = Order.find(session[:order_id])
 	end
 
 	def show
 		@product = Product.find(params[:id])
+    @order = Order.find(session[:order_id])
 	end
 
   def new

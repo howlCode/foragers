@@ -62,7 +62,8 @@ class OrderItemsController < ApplicationController
     end
 
     def load_order
-      @order = Order.where(id: session[:order_id]).first_or_initialize
+      user = current_user
+      @order = Order.where(id: session[:order_id], user_id: user[:id]).first_or_initialize
       if @order.new_record?
         @order.save!
         session[:order_id] = @order.id
