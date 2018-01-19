@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :products, :path => "shop"
   resources :orders
   resources :order_items
-  
+
+  post 'order_items/:id/add' => "order_items#add_quantity", as: "order_item_add"
+  post 'order_items/:id/reduce' => "order_items#reduce_quantity", as: "order_item_reduce"
+
   get 'welcome/index'
   get '/education', to: 'welcome#education'
   get '/about',     to: 'welcome#about'

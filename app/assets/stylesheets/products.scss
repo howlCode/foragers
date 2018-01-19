@@ -6,11 +6,13 @@
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
+	padding: 10px;
 }
 
 .shop-grid-item {
 	max-width: 33.33%;
 	flex-grow: 1;
+	margin: 0 20px;
 }
 
 .shop-grid-description {
@@ -21,6 +23,7 @@
 .shop-image {
 	border-radius: 10%;
 }
+
 
 @media (max-width: 700px) {
 	.shop-grid {

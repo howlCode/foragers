@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :create, :update, :destroy]
 
   def index
     @orders = Order.all
@@ -44,7 +44,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to products_path, notice: 'Cart is empty.' }
       format.json { head :no_content }
     end
   end
