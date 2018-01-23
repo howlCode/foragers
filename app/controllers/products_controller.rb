@@ -2,12 +2,12 @@ class ProductsController < ApplicationController
 	
 	def index
 		@products = Product.all
-    @order = Order.find(session[:order_id])
+    @order = Order.where(id: session[:order_id]).first
 	end
 
 	def show
 		@product = Product.find(params[:id])
-    @order = Order.find(session[:order_id])
+    @order = Order.where(id: session[:order_id]).first
 	end
 
   def new
