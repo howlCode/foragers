@@ -7,22 +7,33 @@
 	width: 100%;
 	flex-wrap: wrap;
 	padding: 10px;
+	justify-content: center;
 }
 
 .shop-grid-item {
-	max-width: 33.33%;
-	flex-grow: 1;
-	margin: 0 20px;
+	max-width: 30%;
+	margin: 0 10px;
+	padding: 15px;
+	border: 2px solid rgba(0,0,0,0.3);
 }
 
 .shop-grid-description {
-	width: 75%;
+	width: 100%;
 	height: auto;
 }
 
 .shop-image {
 	border-radius: 10%;
+	padding: 5px;
 	margin-bottom: 5px;
+	width: 100%;
+	text-align: center;
+}
+
+.nav-tools {
+	margin: 0 auto;
+	width: 1%;
+	text-align: left;
 }
 
 .shopping-cart {
@@ -43,5 +54,15 @@
 	}
 	.shop-grid-description {
 		width: 100%;
+	}
+
+	.shopping-cart {
+		letter-spacing: 0.5rem;
+		text-align: center;
+		background-color: rgba(0,0,0,0.4);
+		color: #fff;
+		width: 100%;
+		position: fixed;
+		z-index: 1;
 	}
 }

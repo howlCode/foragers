@@ -1,7 +1,7 @@
 module ProductHelper
   def print_stock(stock, requested = 1)
     if stock > 0
-      return content_tag(:span, "In stock!", class: "tag is-medium has-text-primary")
+      return content_tag(:span, "In stock!", class: "tag is-medium has-text-success")
     elsif stock == 0
       return content_tag(:span, "Out of Stock", class: "tag is-medium has-text-danger")
     elsif stock < requested

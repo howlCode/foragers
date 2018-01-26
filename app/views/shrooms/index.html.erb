@@ -37,12 +37,14 @@
         <div class="grid-description">
           <p><%= shroom.description %></p>
         </div>
-        <% if current_user != nil %>
-        <% if shroom.user_id == current_user.id %>
-          <%= link_to ' -- Edit', edit_shroom_path(shroom) %>
-          <%= link_to ' -- Delete', shroom_path(shroom),  method: :delete, data: { confirm: "Are you sure?" } %>
-        <% end %>
-      <% end %>
+        <div class="nav-tools">
+          <% if current_user != nil %>
+            <% if shroom.user_id == current_user.id %>
+              <%= link_to ' -- Edit', edit_shroom_path(shroom) %>
+              <%= link_to ' -- Delete', shroom_path(shroom),  method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
+          <% end %>
+        </div>   
       </div>
   <% end %> 
   </div>
