@@ -23,6 +23,18 @@
         <p>(Subtotal: <%= number_to_currency item.subtotal %>)</p>
         <%= link_to 'Remove item from cart', item, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
+      <% end %>     
+    </div>
+    <div class="container is-fluid address has-text-centered">
+      <br />
+      <h2 class="subtitle">Shipping to:</h2>
+      <% current_user.addresses.each do |a| %>
+        <p class="has-text-weight-bold"><%= current_user.email %></p>
+        <p><%= a.line1 %></p>
+        <p><%= a.city %>, <%= a.state %> <%= a.zip %></p>
+        <button class="button is-small">
+          <%= link_to "Edit Address", edit_address_path(:id => current_user.addresses.ids ) %>
+        </button>
       <% end %>
     </div>
   </div>

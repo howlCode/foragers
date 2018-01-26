@@ -1,0 +1,63 @@
+<section class="section">
+  <div class="container">
+  <%= form_for @address, html: {class: "field"} do |form| %>
+
+    <% if @address.errors.any? %>
+      <div id="error_explanation">
+        <h2 class="title">
+          <%= pluralize(@address.errors.count, "Error") %>
+          prohibited this address from being saved:
+        </h2>       
+        <% @address.errors.full_messages.each do |msg| %>
+          <span class="subtitle"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label 'Street', class: "label" %>
+      </div>     
+      <div class="control">
+        <%= form.text_field :line1, class: "input" %>
+      </div>
+    </div>
+    
+    <div class="field">
+      <div class="control">
+        <%= form.label :city, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :city, class: "textarea" %>
+      </div>    
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :state, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :state, class: "input" %>
+      </div> 
+    </div>
+
+     <div class="field">
+      <div class="control">
+        <%= form.label :zip, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :zip %>
+      </div> 
+    </div>
+    
+
+    <div class="field">
+      <div class="control">
+        <%= form.submit "Submit", class: "button" %>
+      </div>
+    </div>
+
+  <% end %>
+
+ </div>
+</section>

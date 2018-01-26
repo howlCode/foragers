@@ -25,7 +25,8 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if @order.update(order_params)
+    if @order.update(order_params.merge(status: 'submitted'))
+      session[:order_id] = nil
       redirect_to @order, notice: 'Order was successfully updated.'
     else
       render :edit 
@@ -43,6 +44,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:user_id, :status)
+      params.require(:order).permit(:user_id, :status, :address_id)
     end
 end
