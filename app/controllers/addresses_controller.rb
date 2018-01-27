@@ -11,7 +11,7 @@ class AddressesController < ApplicationController
 		@address = current_user.addresses.build(addresses_params)
 		@order = Order.where(id: session[:order_id]).first
 		if @address.save
-      redirect_to @order, notice: 'Your address has been saved!'
+      redirect_to order_path(@order), notice: 'Address Saved'
     else
       render 'new'
     end

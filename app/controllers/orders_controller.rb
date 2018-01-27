@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :create, :update, :destroy]
+  before_action :set_order, only: [:show, :create, :update, :destroy, :confirm]
 
   def index
     @orders = Order.all
@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
   def update
     if @order.update(order_params.merge(status: 'submitted'))
       session[:order_id] = nil
-      redirect_to @order, notice: 'Order was successfully updated.'
+      redirect_to confirm_order_path(@order)
     else
       render :edit 
     end
@@ -36,6 +36,9 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     redirect_to products_path, notice: 'Cart is empty.'
+  end
+
+  def confirm
   end
 
   private

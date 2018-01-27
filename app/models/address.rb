@@ -4,4 +4,8 @@ class Address < ApplicationRecord
   validates :state, length: { is: 2 }
   belongs_to :user, optional: true
   has_many :orders
+
+  def to_s
+  	return "#{line1}, #{line2} #{city}, #{state} #{zip}"
+  end
 end
