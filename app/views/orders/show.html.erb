@@ -31,6 +31,13 @@
         <% else %>
           <%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} %>
           <p><%= link_to 'Add a different address', new_address_path %></p>
+        <% end %>
+        <h2>Choose your payment method:</h2>
+        <% if current_user.credit_cards.empty? %>
+          <p><%= link_to 'Add a payment method', new_credit_card_path %></p>
+        <% else %>
+          <%= f.select :credit_card_id, current_user.credit_cards.collect{|c| [c.to_s, c.id]} %>
+          <p><%= link_to 'Add a different payment method', new_credit_card_path %></p>
           <div class="column">
             <span><%= f.submit "Submit Order", class: "button is-primary" %></span>
             <span><%= link_to "Cancel Order", @order, data: { confirm: 'Are you sure?' }, method: :delete, class: "button is-danger" %></span>

@@ -2,8 +2,9 @@ class User < ApplicationRecord
   has_many :shrooms
   has_many :orders
   has_many :addresses
+  has_many :credit_cards
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :omniauthable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

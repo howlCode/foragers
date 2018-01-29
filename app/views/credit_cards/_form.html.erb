@@ -1,0 +1,72 @@
+<section class="section">
+  <div class="container">
+  <%= form_for @credit_card, html: {class: "field"} do |form| %>
+
+    <% if @credit_card.errors.any? %>
+      <div id="error_explanation">
+        <h2 class="title">
+          <%= pluralize(@credit_card.errors.count, "Error") %>
+          prohibited this card information from being saved:
+        </h2>
+        <% @credit_card.errors.full_messages.each do |msg| %>
+          <span class="subtitle"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label 'Name', class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :name, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :brand, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :brand, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :account, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :account, class: "input" %>
+      </div>
+    </div>
+
+     <div class="field">
+      <div class="control">
+        <%= form.label :expiration, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :expiration %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :cvc, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :cvc %>
+      </div>
+    </div>
+
+
+    <div class="field">
+      <div class="control">
+        <%= form.submit "Submit", class: "button" %>
+      </div>
+    </div>
+
+  <% end %>
+
+ </div>
+</section>

@@ -7,7 +7,7 @@
         <h2 class="title">
           <%= pluralize(@address.errors.count, "Error") %>
           prohibited this address from being saved:
-        </h2>       
+        </h2>
         <% @address.errors.full_messages.each do |msg| %>
           <span class="subtitle"><%= msg %></span>
         <% end %>
@@ -17,19 +17,19 @@
     <div class="field">
       <div class="control">
         <%= form.label 'Street', class: "label" %>
-      </div>     
+      </div>
       <div class="control">
         <%= form.text_field :line1, class: "input" %>
       </div>
     </div>
-    
+
     <div class="field">
       <div class="control">
         <%= form.label :city, class: "label" %>
       </div>
       <div class="control">
         <%= form.text_field :city, class: "input" %>
-      </div>    
+      </div>
     </div>
 
     <div class="field">
@@ -38,7 +38,7 @@
       </div>
       <div class="control">
         <%= form.text_field :state, class: "input" %>
-      </div> 
+      </div>
     </div>
 
      <div class="field">
@@ -47,9 +47,9 @@
       </div>
       <div class="control">
         <%= form.text_field :zip %>
-      </div> 
+      </div>
     </div>
-    
+
 
     <div class="field">
       <div class="control">
