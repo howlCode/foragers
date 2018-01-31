@@ -1,0 +1,11 @@
+var productContent = document.querySelector('#product-content');
+
+function closeModal() {
+  var productModal = document.querySelector('#product-modal');
+  productModal.classList.remove('is-active');
+}
+
+productContent.innerHTML = "<%= j render 'product_modal', product: @product %>";
+
+
+

@@ -8,6 +8,9 @@ class ProductsController < ApplicationController
 	def show
 		@product = Product.find(params[:id])
     @order = Order.where(id: session[:order_id]).first
+    respond_to do |format|
+      format.js
+    end
 	end
 
   def new

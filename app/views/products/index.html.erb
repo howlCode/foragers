@@ -13,7 +13,7 @@
 		<% @products.each do |product| %>
 			<div class="shop-grid-item">
 				<div class="shop-image">
-					<%= link_to product_path(product) do %>
+					<%= link_to product_path(product), remote: true do %>
 					<%= image_tag product.image.url(:shop_size) %>
 				<% end %>
 				</div>
@@ -32,4 +32,5 @@
 			</div>
 		<% end %>
 	</div>
+	<div id='product-content'></div>
 </section>

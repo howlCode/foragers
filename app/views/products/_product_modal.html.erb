@@ -1,0 +1,20 @@
+<div class="modal is-active" id="product-modal">
+  <div class="modal-background"></div>
+  <div class="modal-content has-text-white" id="product-content">
+    <!-- Any other Bulma elements you want -->
+      <div class="image">
+        <%= image_tag @product.image.url %>
+      </div>
+      <h2 class="subtitle has-text-centered has-text-white"><%= @product.name %>(<%= number_to_currency @product.price %>)</h2>
+      <div class="has-text-left">
+        <%= @product.description %>
+      </div>
+      <div class="nav-tools has-text-centered">
+        <% if user_signed_in? %>
+          <span><%= button_to "Add to Cart", order_items_path(product_id: @product.id), class: "button is-primary is-small" %></span>
+        <% end %>
+      </div>
+    </div>
+  <button class="modal-close is-large" onClick="closeModal()" id-="modal-close" aria-label="close"></button>
+</div>
+
