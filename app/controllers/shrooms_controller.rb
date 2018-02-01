@@ -7,9 +7,7 @@ class ShroomsController < ApplicationController
 
   def show
     @shroom = Shroom.find(params[:id])
-    respond_to do |format|
-      format.js
-    end
+    redirect_to shrooms_path
   end
 
   def new

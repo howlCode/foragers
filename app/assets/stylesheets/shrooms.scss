@@ -18,7 +18,8 @@
 
 .grid-item {
 	max-width: 30%;
-	margin: 0 10px;
+	min-width: 30%;
+	margin: 10px 10px;
 	padding: 15px;
 	border: 2px solid rgba(0,0,0,0.3);
 	transition: transform .25s ease;
@@ -28,8 +29,35 @@
 	transform: scale(1.05, 1.05);
 }
 
+.grid-img {
+	text-align: center;
+}
+
 #shroom-content {
-	overflow: hidden;
+	width: 80%;
+	::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+		background-color: #F5F5F5;
+		border-radius: 10px;
+}
+
+  ::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+  ::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #FFF;
+	background-image: -webkit-gradient(linear,
+									   40% 0%,
+									   75% 84%,
+									   from(#4D9C41),
+									   to(#19911D),
+									   color-stop(.6,#54DE5D))
+	}
 }
 
 

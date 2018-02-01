@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129175146) do
+ActiveRecord::Schema.define(version: 20180201202011) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line1"
@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(version: 20180129175146) do
     t.string "name", null: false
     t.string "brand", null: false
     t.integer "account", limit: 8, null: false
-    t.integer "expiration", null: false
     t.integer "cvc", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "exp_month"
+    t.integer "exp_year"
   end
 
   create_table "order_items", force: :cascade do |t|

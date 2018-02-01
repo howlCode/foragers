@@ -1,6 +1,6 @@
 <section class="section">
   <div class="container">
-  <%= form_for @shroom, html: {class: "field"} do |form| %>
+  <%= form_for @shroom, html: {class: "field"}, remote: true do |form| %>
 
     <% if @shroom.errors.any? %>
       <div id="error_explanation">

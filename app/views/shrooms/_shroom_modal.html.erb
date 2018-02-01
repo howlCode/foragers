@@ -8,10 +8,6 @@
       <div class="subtitle has-text-centered has-text-white shroom-name">
         <%= @shroom.name %>
       </div>
-      <div class="has-text-centered product-description-modal">
-        <p>Genus: <span class="is-italic"><%= @shroom.genus %></span></p>
-        <p><%= @shroom.description %></p>
-      </div>
       <div class="edible-tag-show">
         <% if @shroom.edible == "true" %>
           <div class="tags">
@@ -23,12 +19,15 @@
           </div> 
         <% end %>
       </div>
-      
+      <div class="has-text-centered product-description-modal">
+        <p>Genus: <span class="is-italic"><%= @shroom.genus %></span></p>
+        <p><%= @shroom.description %></p>
+      </div>    
       <div class="nav-tools">
           <% if current_user != nil %>
             <% if shroom.user_id == current_user.id %>
-              <%= link_to ' -Edit-', edit_shroom_path(shroom) %>
-              <%= link_to ' -Delete-', shroom_path(shroom),  method: :delete, data: { confirm: "Are you sure?" } %>
+              <%= link_to ' -Edit-', edit_shroom_path(shroom), class: "is-link button" %>
+              <%= link_to ' -Delete-', shroom_path(shroom), class: "is-danger button",  method: :delete, data: { confirm: "Are you sure?" } %>
             <% end %>
           <% end %>
         </div> 
