@@ -1,0 +1,9 @@
+var shroomContent = document.querySelector('#shroom-content');
+
+function closeModal() {
+  var shroomModal = document.querySelector('#shroom-modal');
+  shroomModal.classList.remove('is-active');
+}
+
+shroomContent.innerHTML = "<%= j render 'shroom_modal', shroom: @shroom %>";
+

@@ -1,5 +1,5 @@
 class ShroomsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   
   def index
     @shrooms = Shroom.all
@@ -7,6 +7,9 @@ class ShroomsController < ApplicationController
 
   def show
     @shroom = Shroom.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new

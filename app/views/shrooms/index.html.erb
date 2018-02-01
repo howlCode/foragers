@@ -4,22 +4,21 @@
     <h1 class="title">Welcome to the Shroom Hunters Database!</h1>
     <h3 class="subtitle">Our user-contributed database is ever growing!</h3>
     <% if user_signed_in? %>
-      <span class="button is-medium is-hidden-mobile"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
-      <span class="button is-small is-hidden-desktop is-hidden-tablet is-hidden-widescreen"><%= link_to "Add a shroom to the database!", new_shroom_path %></span>
+      <span class="button is-medium is-hidden-mobile"><%= link_to "Add a shroom!", new_shroom_path %></span>
+      <span class="button is-small is-hidden-desktop is-hidden-tablet is-hidden-widescreen"><%= link_to "Add a shroom!", new_shroom_path %></span>
     <% else %>
       <%= link_to user_session_path do %>
-        <span class="button is-medium is-hidden-mobile is-link">Log in to add a mushroom to the database!</span>
-        <span class="button is-small is-hidden-desktop is-hidden-tablet is-hidden-widescreen is-link">Log in to add a mushroom to the database!</span>
+        <span class="button is-medium is-hidden-mobile is-link">Log in to add a mushroom!</span>
+        <span class="button is-small is-hidden-desktop is-hidden-tablet is-hidden-widescreen is-link">Log in to add a mushroom!</span>
       <% end %>
     <% end %>
-    <hr>
   </div>
-
-    <div class="grid">
+  <br>
+    <div class="container is-fluid grid">
       <% @shrooms.each do |shroom| %>
       <div class="grid-item">
         <div class="grid-img">
-          <%= link_to shroom_path(shroom) do %> 
+          <%= link_to shroom_path(shroom), remote: true do %> 
           <%= image_tag shroom.image.url(:medium) %>
         <% end %>
         </div>
@@ -32,20 +31,9 @@
             <span class="tag is-danger is-medium edible-tag">Not Edible!</span>
           </div> 
         <% end %>
-        <h1 class="title"><%= shroom.name %></h1> 
-        <h2 class="subtitle"><%= shroom.genus %></h2> 
-        <div class="grid-description">
-          <p><%= shroom.description %></p>
-        </div>
-        <div class="nav-tools">
-          <% if current_user != nil %>
-            <% if shroom.user_id == current_user.id %>
-              <%= link_to ' -- Edit', edit_shroom_path(shroom) %>
-              <%= link_to ' -- Delete', shroom_path(shroom),  method: :delete, data: { confirm: "Are you sure?" } %>
-            <% end %>
-          <% end %>
-        </div>   
+        <p class="subtitle has-text-centered"><%= shroom.name %></p> 
       </div>
   <% end %> 
   </div>
+  <div id="shroom-content"></div>
 </section>
