@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180202100734) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.string "line1"
     t.string "line2"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180202100734) do
   create_table "credit_cards", force: :cascade do |t|
     t.string "name", null: false
     t.string "brand", null: false
-    t.string "account", limit: 8, null: false
+    t.string "account", null: false
     t.string "cvc", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,7 +79,7 @@ ActiveRecord::Schema.define(version: 20180202100734) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "edible"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_shrooms_on_user_id"
   end
 
@@ -97,4 +100,5 @@ ActiveRecord::Schema.define(version: 20180202100734) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "shrooms", "users"
 end
