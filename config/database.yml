@@ -29,27 +29,30 @@
 
 development:
   adapter: postgresql
-  encoding: sql_ascii
+  encoding: unicode
   username: postgres
   password: postgres
+  template: template0
   database: shroom_hunters_database_development
   pool: 5
   timeout: 5000
 
 test:
   adapter: postgresql
-  encoding: sql_ascii
+  encoding: unicode
   username: postgres
   password: postgres
+  template: template0
   database: shroom_hunters_database_test
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
-  encoding: sql_ascii
+  encoding: unicode
   username: postgres
   password: postgres
+  template: template0
   database: shroom_hunters_database_production
   pool: 5
   timeout: 5000
