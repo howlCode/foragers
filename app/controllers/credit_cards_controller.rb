@@ -1,4 +1,6 @@
 class CreditCardsController < ApplicationController
+	before_action :authenticate_user!
+
 	def index
 		@credit_cards = current_user.credit_cards.all
 	end
@@ -30,6 +32,6 @@ class CreditCardsController < ApplicationController
 
 	private
 		def credit_card_params
-			params.require(:credit_card).permit(:name, :brand, :account, :expiration, :cvc)
+			params.require(:credit_card).permit(:name, :brand, :account, :exp_month, :exp_year, :cvc)
 		end
 end

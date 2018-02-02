@@ -7,7 +7,9 @@ class ShroomsController < ApplicationController
 
   def show
     @shroom = Shroom.find(params[:id])
-    redirect_to shrooms_path
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
@@ -22,7 +24,7 @@ class ShroomsController < ApplicationController
     @shroom = current_user.shrooms.build(shroom_params)
 
     if @shroom.save
-      redirect_to @shroom
+      redirect_to shrooms_path
     else
       render 'new'
     end

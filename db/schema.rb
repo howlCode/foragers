@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201202011) do
+ActiveRecord::Schema.define(version: 20180202100734) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line1"
@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 20180201202011) do
   create_table "credit_cards", force: :cascade do |t|
     t.string "name", null: false
     t.string "brand", null: false
-    t.integer "account", limit: 8, null: false
-    t.integer "cvc", null: false
+    t.string "account", limit: 8, null: false
+    t.string "cvc", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "exp_month"
-    t.integer "exp_year"
+    t.string "exp_month"
+    t.string "exp_year"
   end
 
   create_table "order_items", force: :cascade do |t|

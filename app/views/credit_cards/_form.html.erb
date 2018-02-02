@@ -17,6 +17,7 @@
     <div class="field">
       <div class="control">
         <%= form.label 'Name', class: "label" %>
+        <p class="help">Name as it appears on card</p>
       </div>
       <div class="control">
         <%= form.text_field :name, class: "input" %>
@@ -28,7 +29,7 @@
         <%= form.label :brand, class: "label" %>
       </div>
       <div class="control">
-        <%= form.text_field :brand, class: "input" %>
+        <%= form.select(:brand, options_for_select([['Visa', 'Visa'], ['MasterCard', 'MasterCard'], ['American Express', 'American Express'], ['Discover', 'Discover']])) %>
       </div>
     </div>
 
@@ -43,16 +44,28 @@
 
      <div class="field">
       <div class="control">
-        <%= form.label :expiration, class: "label" %>
+        <%= form.label :Expiration_month, class: "label" %>
+        <p class="help">e.g. February would be 02</p>
       </div>
       <div class="control">
-        <%= form.text_field :expiration %>
+        <%= form.text_field :exp_month %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :Expiration_Year, class: "label" %>
+        <p class="help">e.g. 2018</p>
+      </div>
+      <div class="control">
+        <%= form.text_field :exp_year %>
       </div>
     </div>
 
     <div class="field">
       <div class="control">
         <%= form.label :cvc, class: "label" %>
+        <p class="help">The security code on the back of your card</p>
       </div>
       <div class="control">
         <%= form.text_field :cvc %>

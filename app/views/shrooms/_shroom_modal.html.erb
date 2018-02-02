@@ -26,8 +26,7 @@
       <div class="nav-tools">
           <% if current_user != nil %>
             <% if shroom.user_id == current_user.id %>
-              <%= link_to ' -Edit-', edit_shroom_path(shroom), class: "is-link button" %>
-              <%= link_to ' -Delete-', shroom_path(shroom), class: "is-danger button",  method: :delete, data: { confirm: "Are you sure?" } %>
+              <%= link_to 'Update Info', edit_shroom_path(shroom), class: "is-link button is-small" %>
             <% end %>
           <% end %>
         </div> 

@@ -21,7 +21,7 @@
 				</div>
 				<div class="nav-tools has-text-centered">
 					<%= print_stock(product.stock) %>
-					<% if user_signed_in? %>
+					<% if user_signed_in? && product.stock != 0 %>
 						<%= button_to "Add to Cart", order_items_path(product_id: product.id), class: "button is-primary is-small" %>
 					<% end %>
 				</div>

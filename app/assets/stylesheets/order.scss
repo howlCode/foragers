@@ -6,10 +6,39 @@
   display: flex;
   max-width: auto;
   flex-wrap: nowrap;
-  justify-content: flex-start;
-  flex-grow: 1;
+  justify-content: center; 
+}
+
+.checkout-grid-item {
+	margin: 10px 10px;
+	transition: transform .25s ease;
+}
+
+.checkout-grid-item:hover {
+	transform: scale(1.05, 1.05);
 }
 
 #to-grow {
 	margin-right: 10px;
+}
+
+.checkout-form {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.address-selection {
+  float: left;
+  padding: 10px;
+}
+
+.payment-selection {
+  float: right;
+  padding: 10px;
+}
+
+.confirm-selection {
+
 }

@@ -1,4 +1,6 @@
 class AddressesController < ApplicationController
+  before_action :authenticate_user!
+
 	def new
 		@address = current_user.addresses.build
 	end
