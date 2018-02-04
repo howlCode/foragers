@@ -2,12 +2,12 @@
   <div class="container is-fluid is-pulled-right">
   <% if @order %>
     <h1 class="title">
-      <%= link_to @order, class: "is-link shopping-cart" do %>
+      <%= link_to @order, class: "is-link shopping-cart swell" do %>
         <i class="fa fa-shopping-cart"></i> (<%= total_quantity(@order) %>)
       <% end %>
     </h1>
   <% else %>
-    <h1 class="title"><i class="fa fa-shopping-cart"></i>(0)</h1>       
+    <h1 class="title swell"><i class="fa fa-shopping-cart"></i>(0)</h1>       
   <% end %>
   </div>
 </header>

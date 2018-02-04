@@ -36,6 +36,14 @@
 	justify-content: space-around;
 }
 
+.swell {
+	transition: transform .25s ease;
+}
+
+.swell:hover {
+	transform: scale(1.10, 1.10);
+}
+
 /* Modal */
 
 .modal-image {
