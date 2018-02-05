@@ -30,9 +30,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: postgres
-  template: template0
+  # username: howlcode
+  # password: postgres
+  # template: template0
   database: shroom_hunters_database_development
   pool: 5
   timeout: 5000
@@ -40,9 +40,9 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: postgres
-  template: template0
+  # username: howlcode
+  # password: postgres
+  # template: template0
   database: shroom_hunters_database_test
   pool: 5
   timeout: 5000
@@ -50,9 +50,9 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: postgres
-  template: template0
+  # username: howlcode
+  # password: postgres
+  # template: template0
   database: shroom_hunters_database_production
   pool: 5
   timeout: 5000
