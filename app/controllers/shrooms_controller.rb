@@ -34,7 +34,7 @@ class ShroomsController < ApplicationController
     @shroom = Shroom.find(params[:id])
 
     if @shroom.update(shroom_params)
-      redirect_to @shroom
+      redirect_to shrooms_path
     else
       render 'edit'
     end
