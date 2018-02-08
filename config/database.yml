@@ -27,29 +27,20 @@
 
 # Postgres setup
 
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
   username: postgres
   password: postgres
-  database: shroom_hunters_database_development
-  pool: 5
-  timeout: 5000
+
+development:
+  <<: *default
+  database: shroom-hunters_development
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  username: postgres
-  password: postgres
-  database: shroom_hunters_database_test
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: shroom-hunters_test
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  username: postgres
-  password: postgres
-  database: shroom_hunters_database_production
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: shroom-hunters_production

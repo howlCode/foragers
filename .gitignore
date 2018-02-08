@@ -12,6 +12,7 @@
 /db/*.sqlite3-journal
 /config/database.yml
 /config/secrets.yml
+.env
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -23,3 +24,6 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
