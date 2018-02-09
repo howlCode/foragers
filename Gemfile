@@ -34,9 +34,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bulma-rails', '~> 0.6.1'
 gem 'devise'
 gem 'omniauth'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-# gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano', '~> 3.7', '>= 3.7.1'
+gem 'capistrano-rails', '~> 1.2'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
