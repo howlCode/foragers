@@ -17,7 +17,7 @@
     <div class="container is-fluid grid">
       <% @shrooms.each do |shroom| %>
       <div class="grid-item">
-        <div class="grid-img">
+        <div class="grid-image">
           <%= link_to shroom_path(shroom), remote: true do %> 
           <%= image_tag shroom.image.url(:medium) %>
         <% end %>

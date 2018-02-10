@@ -11,22 +11,22 @@
     <% end %> 
 	</div>
 	<br>
-	<div class="container is-fluid shop-grid">
+	<div class="container is-fluid grid">
 		<% @products.each do |product| %>
-			<div class="shop-grid-item">
-				<div class="shop-image">
+			<div class="grid-item">
+				<div class="grid-image">
 					<%= link_to product_path(product), remote: true do %>
 					<%= image_tag product.image.url(:shop_size) %>
 				<% end %>
+				</div>
+				<div class="name has-text-centered">
+					<p class="is-size-6"><%= product.name %>(<%= number_to_currency product.price %>)</p>
 				</div>
 				<div class="nav-tools has-text-centered">
 					<%= print_stock(product.stock) %>
 					<% if user_signed_in? && product.stock != 0 %>
 						<%= button_to "Add to Cart", order_items_path(product_id: product.id), class: "button is-primary is-small" %>
 					<% end %>
-				</div>
-				<div class="name">
-					<p class="subtitle"><%= product.name %>(<%= number_to_currency product.price %>)</p>
 				</div>
 			</div>
 		<% end %>
