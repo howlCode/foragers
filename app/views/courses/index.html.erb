@@ -31,7 +31,7 @@
     <br>
     <div class="container has-text-centered">
       <h2 class="subtitle">Take A Look At Some Of Our Upcoming Classes</h2>
-
+      
       <table class="table is-hoverable is-fullwidth">
         <thead>
           <tr>
@@ -41,18 +41,19 @@
           </tr>
         </thead>
         <tbody>
+        <% @courses.each do |course| %>
          <tr>
-           <th class="swell"><a href="/classes/#">Intro to Shroom Hunting</a></th>
-           <td>Umstead State Park | Raleigh, NC</td>
-           <td>11am | January 3rd, 2018</td>
+           <th class="swell">
+             <%= link_to course.title, course_path(course), remote: true %>
+           </th>
+           <td><%= course.location %></td>
+           <td><%= course.date %></td>
          </tr>
-         <tr>
-           <th class="swell"><a href="/classes/#">Intermediate Mushroom ID</a></th>
-           <td>Yellowstone Park | Wisconsin</td>
-           <td>2pm | January 21st, 2018</td> 
-         </tr> 
+        <% end %>
         </tbody>
       </table>
+      
     </div>
+    <div id='course-content'></div>
   </section>
 

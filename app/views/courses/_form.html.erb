@@ -1,0 +1,72 @@
+<section class="section">
+  <div class="container">
+  <%= form_for @course, html: {class: "field"} do |form| %>
+
+    <% if @course.errors.any? %>
+      <div id="error_explanation">
+        <h2 class="title">
+          <%= pluralize(@course.errors.count, "Error") %>
+          prohibited this course from being saved to the database:
+        </h2>       
+        <% @course.errors.full_messages.each do |msg| %>
+          <span class="subtitle"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :title, class: "label" %>
+      </div>     
+      <div class="control">
+        <%= form.text_field :title, class: "input" %>
+      </div>
+    </div>
+    
+    <div class="field">
+      <div class="control">
+        <%= form.label :description, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_area :description, class: "textarea" %>
+      </div>    
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :location, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :location, class: "input" %>
+      </div>    
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :date, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :date, class: "input" %>
+      </div>    
+    </div>
+    
+    <div class="field">
+      <div class="control">
+        <%= form.label :cost, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :cost, class: "input" %>
+      </div>    
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.submit "Submit", class: "button" %>
+      </div>
+    </div>
+
+  <% end %>
+ </div>
+</section>
+
+

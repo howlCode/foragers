@@ -1,0 +1,9 @@
+
+var courseContent = document.querySelector('#course-content');
+
+function closeModal() {
+  var courseModal = document.querySelector('#course-modal');
+  courseModal.classList.remove('is-active');
+}
+
+courseContent.innerHTML = "<%= j render 'course_modal', course: @course %>";

@@ -1,0 +1,19 @@
+<div class="modal is-active" id="course-modal">
+  <div class="modal-background"></div>
+  <div class="modal-content has-text-white" id="course-content">
+    <!-- Any other Bulma elements you want -->
+      <div class="subtitle has-text-centered has-text-white">
+        <%= @course.title %>
+        <%= number_to_currency @course.cost %>
+      </div>
+      <div class="has-text-centered">
+        <p><%= @course.description %></p>
+      </div>
+      <div class="nav-tools has-text-centered">
+        <% if user_signed_in? %>
+          <span><%= button_to "Sign Up!", order_items_path(course_id: @course.id), class: "button is-primary is-small" %></span>
+        <% end %>
+      </div>    
+    </div>
+  <button class="modal-close is-large" onClick="closeModal()" id-="modal-close" aria-label="close"></button>
+</div>
