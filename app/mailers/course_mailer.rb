@@ -1,5 +1,5 @@
 class CourseMailer < ApplicationMailer
-	default from: 'shroom_hunters@shroom-hunters.com'
+	default from: 'no-reply@howlcode.com'
 	def confirmation_email(user, course)
 		@user = user
 		@course = course

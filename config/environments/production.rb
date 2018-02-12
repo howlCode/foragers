@@ -9,7 +9,7 @@ config.action_mailer.delivery_method = :sendmail
 # }
 config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = true
-config.action_mailer.default_options = {from: 'shroom-hunters@shroom-hunters.com'}
+config.action_mailer.default_options = {from: 'no-reply@howlcode.com'}
   # Code is not reloaded between requests.
   config.cache_classes = true
 
