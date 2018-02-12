@@ -1,0 +1,6 @@
+<br>
+<div class="container is-fluid has-text-centered">
+  <h1 class="title">Edit Course Information</h1>
+</div>
+<%= render 'form' %>
+<%= link_to ' Delete Course', course_path(@course), class: "is-danger button is-small",  method: :delete, data: { confirm: "Are you sure?" } %>

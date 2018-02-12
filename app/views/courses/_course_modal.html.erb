@@ -2,18 +2,27 @@
   <div class="modal-background"></div>
   <div class="modal-content has-text-white" id="course-content">
     <!-- Any other Bulma elements you want -->
-      <div class="subtitle has-text-centered has-text-white">
+      <div class="subtitle has-text-centered has-text-primary is-capitalized has-text-weight-bold">
         <%= @course.title %>
-        <%= number_to_currency @course.cost %>
       </div>
-      <div class="has-text-centered">
+      <div class="is-size-5 has-text-centered">
         <p><%= @course.description %></p>
       </div>
-      <div class="nav-tools has-text-centered">
-        <% if user_signed_in? %>
-          <span><%= button_to "Sign Up!", order_items_path(course_id: @course.id), class: "button is-primary is-small" %></span>
+      <br>
+      <div class="is-size-4 has-text-centered">
+        <p>Spaces available: (<%= @course.seats_available %>)</p>
+      </div>
+      <div class="has-text-centered is-size-6">
+       <%= @course.date %>
+       , @ <%= @course.location %> 
+      </div>
+      <div class="has-text-centered">
+        <% if @course.participants == @course.size %>
+          <p class="has-text-danger">Sorry the class is full!</p>
+        <% elsif @course.participants < @course.size %>
+          <%= button_to "Sign Up!", courses_attend_path(@course), class: "button is-success is-medium" %>
         <% end %>
-      </div>    
+      </div>
     </div>
   <button class="modal-close is-large" onClick="closeModal()" id-="modal-close" aria-label="close"></button>
 </div>
