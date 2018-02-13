@@ -31,8 +31,10 @@
             <span class="tag is-danger is-medium edible-tag">Not Edible!</span>
           </div> 
         <% end %>
-        <p class="subtitle has-text-centered is-marginless"><%= shroom.name %></p>
-        <p class="is-italic has-text-centered"><%= shroom.genus %></p>
+        <div class="name-genus">
+          <p class="subtitle has-text-centered is-marginless"><%= shroom.name %></p>
+          <p class="is-italic has-text-centered"><%= shroom.genus %></p>
+        </div>      
       </div>
   <% end %> 
   </div>
