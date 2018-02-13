@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_course, only: [:show, :edit, :update]
   include AttendCourse
   
 	def index
@@ -7,7 +8,6 @@ class CoursesController < ApplicationController
 	end
 
 	def show
-		@course = Course.find(params[:id])
     respond_to do |format|
       format.js
     end
@@ -18,12 +18,10 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
   end
 
   def create
     @course = Course.new(course_params)
-
     if @course.save
       redirect_to courses_path
     else
@@ -31,9 +29,7 @@ class CoursesController < ApplicationController
     end
   end
 
-  def update
-    @course = Course.find(params[:id])
-
+  def update    
     if @course.update(course_params)
       redirect_to courses_path
     else
@@ -44,6 +40,10 @@ class CoursesController < ApplicationController
   private
     def course_params
       params.require(:course).permit(:title, :location, :date, :description, :size, :participants)
+    end
+
+    def set_course
+      @course = Course.find(params[:id])
     end
 
 end

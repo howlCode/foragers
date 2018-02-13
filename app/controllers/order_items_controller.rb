@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   before_action :load_order, only: [:create]
-  before_action :set_order_item, only: [:show, :edit, :destroy]
+  before_action :set_order_item, only: [:show, :edit, :destroy, :update]
   include AddRemoveQuantity
 
   def create
@@ -15,7 +15,6 @@ class OrderItemsController < ApplicationController
   end
 
   def update
-    @order_item = OrderItem.find(params[:id])
     if @order_item.update
       redirect_to Order.find(session[:order_id]), notice: 'Item successfully updated'
     else
@@ -24,7 +23,6 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    @order_item = OrderItem.find(params[:id])
     @order_item.destroy
     redirect_to Order.find(session[:order_id]), notice: 'Item was successfully removed from your order.'
   end

@@ -1,12 +1,12 @@
 class ShroomsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_shroom, only: [:show, :edit, :update, :destroy]
   
   def index
     @shrooms = Shroom.all
   end
 
   def show
-    @shroom = Shroom.find(params[:id])
     respond_to do |format|
       format.js
     end
@@ -17,7 +17,6 @@ class ShroomsController < ApplicationController
   end
 
   def edit
-    @shroom = Shroom.find(params[:id])
   end
 
   def create
@@ -31,8 +30,6 @@ class ShroomsController < ApplicationController
   end
 
   def update
-    @shroom = Shroom.find(params[:id])
-
     if @shroom.update(shroom_params)
       redirect_to shrooms_path
     else
@@ -41,7 +38,6 @@ class ShroomsController < ApplicationController
   end
 
   def destroy
-    @shroom = Shroom.find(params[:id])
     @shroom.destroy
 
     redirect_to shrooms_path
@@ -50,6 +46,10 @@ class ShroomsController < ApplicationController
   private
     def shroom_params
       params.require(:shroom).permit(:name, :description, :edible, :genus, :image)
+    end
+
+    def set_shroom
+      @shroom = Shroom.find(params[:id])
     end
 
 end
