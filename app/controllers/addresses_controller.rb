@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_order, only: [:update, :create]
 
 	def new
 		@address = current_user.addresses.build
@@ -11,7 +12,6 @@ class AddressesController < ApplicationController
 
 	def create
 		@address = current_user.addresses.build(addresses_params)
-		@order = Order.where(id: session[:order_id]).first
 		if @address.save
       redirect_to order_path(@order), notice: 'Address Saved'
     else
@@ -21,7 +21,6 @@ class AddressesController < ApplicationController
 
   def update
     @address = current_user.addresses.find(params[:id])
-    @order = Order.where(id: session[:order_id]).first
     if @address.update(addresses_params)
       redirect_to @order, notice: 'Your address has been updated!'
     else
@@ -32,5 +31,9 @@ class AddressesController < ApplicationController
   private
     def addresses_params
       params.require(:address).permit(:line1, :city, :state, :zip)
+    end
+
+    def set_order
+      @order = Order.where(id: session[:order_id]).first
     end
 end

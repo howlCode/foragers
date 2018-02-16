@@ -1,14 +1,13 @@
 class ProductsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
-  
+  before_action :set_order, only: [:index, :show]
+
 	def index
 		@products = Product.all
-    @order = Order.where(id: session[:order_id]).first
 	end
 
 	def show
 		@product = Product.find(params[:id])
-    @order = Order.where(id: session[:order_id]).first
     respond_to do |format|
       format.js
     end
@@ -33,4 +32,7 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, :description, :stock, :price, :image)
     end
 
+    def set_order
+      @order = Order.where(id: session[:order_id]).first
+    end
 end

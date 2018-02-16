@@ -4,7 +4,6 @@ class OrderItemsController < ApplicationController
   include AddRemoveQuantity
 
   def create
-    # @order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id])
     @order_item = @order.order_items.where(product_id: params[:product_id]).first_or_initialize
     @order_item.quantity += 1
     if @order_item.save

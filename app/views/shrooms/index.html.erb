@@ -16,24 +16,23 @@
   <br>
     <div class="container is-fluid grid">
       <% @shrooms.each do |shroom| %>
-      <div class="grid-item">
+      <div class="grid-item"><%= link_to shroom_path(shroom), remote: true do %> 
         <div class="grid-image">
-          <%= link_to shroom_path(shroom), remote: true do %> 
-          <%= image_tag shroom.image.url(:medium) %>
-        <% end %>
+          <%= image_tag shroom.image.url(:thumb) %>       
         </div>
         <% if shroom.edible == "true" %>
           <div class="tags">
-            <span class="tag is-success is-medium edible-tag">Edible!</span>
+            <span class="tag is-success is-small edible-tag">Edible!</span>
           </div>         
           <% else %>
           <div class="tags">
-            <span class="tag is-danger is-medium edible-tag">Not Edible!</span>
+            <span class="tag is-danger is-small edible-tag">Not Edible!</span>
           </div> 
         <% end %>
         <div class="name-genus">
-          <p class="subtitle has-text-centered is-marginless"><%= shroom.name %></p>
-          <p class="is-italic has-text-centered"><%= shroom.genus %></p>
+          <p class="subtitle is-size-6-mobile has-text-centered is-marginless"><%= shroom.name %></p>
+          <p class="is-italic is-size-6-mobile has-text-centered"><%= shroom.genus %></p>
+          <% end %>
         </div>      
       </div>
   <% end %> 
