@@ -1,0 +1,6 @@
+one:
+  user: users(:valid)
+  line1: 13 street
+  city: here
+  state: al
+  zip: 22222

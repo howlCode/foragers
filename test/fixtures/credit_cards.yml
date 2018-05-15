@@ -1,0 +1,8 @@
+one:
+  user: users(:valid)
+  name: Test User
+  brand: Visa
+  account: 1234567812345678
+  cvc: 123
+  exp_month: 12
+  exp_year: 2020
