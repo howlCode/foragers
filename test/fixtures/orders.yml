@@ -1,6 +1,0 @@
-one:
-  user: users(:valid)
-  address: addresses(:one)
-  credit_card: credit_cards(:one)
-  status: unsubmitted
-
