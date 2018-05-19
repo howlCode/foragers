@@ -1,32 +1,18 @@
-# Shroom Hunters!
+# Shroom Hunters
 
-Full-stack web app running on Ruby on Rails 5.1.4. Allows users to view/add an extensive mushroom database that shows common mushrooms with a name, genus family, description, image, and whether it is edible or not.
-Also, a full e-commerce platform allows users to purchase site-branded clothing and tools for wild foraging and mushroom hunting.
-Fake courses are offered in the education section. Email-confirmations are sent out on sign-up.
-<br/><br/>
-live here: http://shroom-hunters.howlcode.com 
-<br/><br/>
-You will need additional gems if you clone the site:
-<br/><br/>
--Devise (for user authentication)
-<br/><br/>
--Paperclip (image attachments)
-<br/><br/>
--Bulma-rails (uses bulma.io for the CSS framework)
-<br/><br/>
--PG (uses a postgres database)
-<br/><br/>
+## What is it?
+A full-stack rails 5 app that explores mushroom hunting and wild foraging. A user may contribute to the database by adding information about individual mushrooms that they find in the wild. 
+A user may also purchase products from the store, and sign up for courses that the site-owner leads.
 
-run:
-<br/><br/>
-bundle install
-<br/><br/>
-rails db:create
-<br/><br/>
-rails db:migrate
-<br/><br/>
-rails server
-<br/><br/>
+## Why did you make it?
+My most ambitious app. I built everything from scratch here except for User authentication, that is heavy lifting that I, smartyl, leave to devise. The e-commerce front is completely built from the ground up. 
+My desire to build this app came from finding no real good centralized community for wild-foragers. I plan to continue modifying this site and one day launching as a true application as opposed to a Rails study project.
+
+## How can I use it?
+-Clone the repo, cd into the directory and run bundle install.
+-You'll need to set up Postgresql on your machine, I recommend following this tutorial(linux): https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04
+-Update config/database.yml with your user and password for postgres
+-run commands 'rails db:create' and 'rails db:migrate'
 
 
 
