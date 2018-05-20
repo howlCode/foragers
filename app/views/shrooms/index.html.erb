@@ -14,6 +14,14 @@
     <% end %>
   </div>
   <br>
+  <div class="container is-fluid has-text-left grid">
+    <%= form_tag(shrooms_path, :method => "get") do %>
+    <%= label_tag(:genus_filter) %>
+    <%= select_tag :genus_filter, options_for_select(Shroom.all.collect { |g| g.genus }) %>
+    <%= submit_tag("Filter") %>
+    <% end %>
+    <%= link_to "Show All Shrooms", shrooms_path, class: "button is-small" %>     
+  </div>
     <div class="container is-fluid grid">
       <% @shrooms.each do |shroom| %>
       <div class="grid-item"><%= link_to shroom_path(shroom), remote: true do %> 
