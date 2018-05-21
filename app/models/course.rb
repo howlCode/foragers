@@ -4,10 +4,18 @@ class Course < ApplicationRecord
 
   def seats_available
   	if self.participants != 0
-    	return self.size - self.participants
+    	self.size - self.participants
     else
-    	return self.size
+    	self.size
     end
+  end
+
+  def class_time
+  	if self.date < DateTime.now
+  		self.date = "COURSE OVER"
+  	else
+  		self.date.strftime("%m/%d/%y at %l:%M %p")
+  	end
   end
 
 end
