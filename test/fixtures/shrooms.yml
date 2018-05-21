@@ -1,0 +1,6 @@
+one:
+  name: test
+  genus: test
+  description: test
+  edible: true
+  user: users(:valid)

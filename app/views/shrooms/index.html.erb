@@ -17,7 +17,7 @@
   <div class="container is-fluid has-text-left grid">
     <%= form_tag(shrooms_path, :method => "get") do %>
     <%= label_tag(:genus_filter) %>
-    <%= select_tag :genus_filter, options_for_select(Shroom.all.collect { |g| g.genus }) %>
+    <%= select_tag :genus_filter, options_for_select(Shroom.all.collect { |g| g.genus }.sort) %>
     <%= submit_tag("Filter") %>
     <% end %>
     <%= link_to "Show All Shrooms", shrooms_path, class: "button is-small" %>     
