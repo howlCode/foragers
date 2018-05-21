@@ -13,7 +13,6 @@ class Course < ApplicationRecord
   def class_time
   	if self.date < DateTime.now
   		self.date = "COURSE OVER"
-      self.participants == self.size
   	else
   		self.date.strftime("%m/%d/%y at %l:%M %p")
   	end
