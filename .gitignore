@@ -20,7 +20,7 @@
 !/log/.keep
 !/tmp/.keep
 /public/system/*
-
+.idea
 /node_modules
 /yarn-error.log
 
