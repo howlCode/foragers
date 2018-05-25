@@ -1,5 +1,11 @@
 valid:
   email: test@example.com
+  admin: false
 
 valid2:
   email: test2@example.com
+  admin: false
+
+admin:
+  email: miromanyth@gmail.com
+  admin: true

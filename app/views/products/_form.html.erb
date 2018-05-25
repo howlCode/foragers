@@ -1,0 +1,72 @@
+<section class="section">
+ <div class="container">
+  <%= form_for @product, html: {class: "field"} do |form| %>
+
+    <% if @product.errors.any? %>
+      <div id="error_explanation">
+        <h2 class="title">
+          <%= pluralize(@product.errors.count, "Error") %>
+          prohibited this product from being saved to the database:
+        </h2>       
+        <% @product.errors.full_messages.each do |msg| %>
+          <span class="subtitle"><%= msg %></span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :name, class: "label" %>
+      </div>     
+      <div class="control">
+        <%= form.text_field :name, class: "input" %>
+      </div>
+    </div>
+    
+    <div class="field">
+      <div class="control">
+        <%= form.label :description, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_area :description, class: "textarea" %>
+      </div>    
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.label :price, class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :price, class: "input" %>
+      </div> 
+    </div>
+  
+    <div class="field">
+      <div class="control">
+        <%= form.label "Quantity", class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.text_field :stock %>
+      </div>
+    </div>
+
+     <div class="field">
+      <div class="control">
+        <%= form.label "Upload an Image", class: "label" %>
+      </div>
+      <div class="control">
+        <%= form.file_field :image %>
+      </div> 
+    </div>
+    
+
+    <div class="field">
+      <div class="control">
+        <%= form.submit "Submit", remote: true, class: "button" %>
+      </div>
+    </div>
+
+  <% end %>
+
+ </div>
+</section>
