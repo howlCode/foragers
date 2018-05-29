@@ -5,7 +5,7 @@ A full-stack rails 5 app that explores mushroom hunting and wild foraging. A use
 A user may also purchase products from the store, and sign up for courses that the site-owner leads.
 
 ## Why did you make it?
-My most ambitious app. I built everything from scratch here except for User authentication, that is heavy lifting that I, smartyl, leave to devise. The e-commerce front is completely built from the ground up. 
+My most ambitious app. I built everything from scratch here except for User authentication. That is heavy lifting that I, smartly, leave to devise. The e-commerce portion is completely built from the ground up. 
 My desire to build this app came from finding no real good centralized community for wild-foragers. I plan to continue modifying this site and one day launching as a true application as opposed to a Rails study project.
 
 ## How can I use it?
