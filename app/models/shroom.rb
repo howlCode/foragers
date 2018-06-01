@@ -5,4 +5,5 @@ class Shroom < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   scope :genus_filter, -> (genus) { where genus: genus }
+  scope :edible_filter, -> (edible) { where edible: edible }
 end

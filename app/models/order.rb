@@ -9,6 +9,7 @@ class Order < ApplicationRecord
     self.order_items.each do |i|
       sum += i.subtotal
     end
-    return sum
+    sum
   end
+
 end

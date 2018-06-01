@@ -5,6 +5,7 @@ class ShroomsController < ApplicationController
   def index
     @shrooms = Shroom.all
     @shrooms = Shroom.where(genus: params[:genus_filter]) if params[:genus_filter].present?
+    @shrooms = Shroom.where(edible: params[:edible_filter]) if params[:edible_filter].present?
   end
 
   def show
@@ -46,7 +47,7 @@ class ShroomsController < ApplicationController
 
   private
     def shroom_params
-      params.require(:shroom).permit(:name, :description, :edible, :genus, :image, :genus_filter)
+      params.require(:shroom).permit(:name, :description, :edible, :genus, :image, :genus_filter, :edible_filter)
     end
 
     def set_shroom
