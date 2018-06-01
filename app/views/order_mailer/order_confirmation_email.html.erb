@@ -13,8 +13,8 @@
         <% @order.order_items.each do |item| %>
           <p><%= item.product.name %></p>
           <span>Quantity: <%= item.quantity %></span>
-          <p>Total: <%= number_to_currency item.subtotal %></p>
         <% end %>
+        <p>Total: <%= number_to_currency @order.total %></p>
     </section>
   </body>
 </html>

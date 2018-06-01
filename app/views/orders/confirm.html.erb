@@ -3,7 +3,7 @@
 	<h3 class="has-text-centered subtitle">You will receive a confirmation email for your order. Expect delivery in 5-7 business days.</h3>
 	<br>
 	<h3 class="has-text-centered subtitle">Order Summary</h3>
- 	<div class="container is-fluid has-text-centered shop-grid">
+ 	<div class="container is-fluid has-text-centered grid">
     <% @order.order_items.each do |item| %>
     <div class="checkout-grid-item">
       <div class="grid-img">    
@@ -13,8 +13,8 @@
       <div class="has-text-centered quantity">
         <span id="to-grow">Quantity: <%= item.quantity %></span>
       </div>
-      <p>Total: <%= number_to_currency item.subtotal %></p>
     </div>
     <% end %>
   </div>
+  <p class="has-text-centered">Total: <%= number_to_currency @order.total %></p>
 </section>

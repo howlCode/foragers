@@ -5,5 +5,5 @@ Order Summary
 <% @order.order_items.each do |item| %>
 <%= item.product.name %>
 Quantity: <%= item.quantity %>
-Total: <%= number_to_currency item.subtotal %>
+Total: <%= number_to_currency @order.total %>
 <% end %>
