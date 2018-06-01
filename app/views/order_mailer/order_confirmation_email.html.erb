@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <section>
+      <h1>Thank You!</h1>
+      <h3>Expect delivery in 5-7 business days.</h3>
+      <br>
+      <h3>Order Summary</h3>
+        <% @order.order_items.each do |item| %>
+          <p><%= item.product.name %></p>
+          <span>Quantity: <%= item.quantity %></span>
+          <p>Total: <%= number_to_currency item.subtotal %></p>
+        <% end %>
+    </section>
+  </body>
+</html>

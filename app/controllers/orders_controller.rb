@@ -39,6 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def confirm
+    OrderMailer.order_confirmation_email(current_user, @order).deliver_now
   end
 
   private
