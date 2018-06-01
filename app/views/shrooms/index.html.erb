@@ -14,15 +14,19 @@
     <% end %>
   </div>
   <br>
-  <div class="container is-fluid has-text-left grid">
+  <div class="container is-fluid has-text-centered"><h3 class="subtitle">Filter Shrooms</h3></div>
+  <div class="container is-fluid has-text-centered grid">
     <%= form_tag(shrooms_path, :method => "get") do %>
-    <%= label_tag(:genus) %>
-    <%= select_tag :genus_filter, options_for_select(Shroom.all.collect { |g| g.genus }.sort) %>
-    <%= label_tag(:edible) %>
-    <%= select_tag :edible_filter, options_for_select(Shroom.all.collect { |e| e.edible }.sort) %>
-    <%= submit_tag("Filter") %>
+      <%= label_tag(:genus) %>
+      <%= select_tag :genus_filter, options_for_select(Shroom.all.collect { |g| g.genus }.sort, selected: params[:genus_filter]) %>
+      <%= submit_tag("Filter") %>
     <% end %>
-    <%= link_to "Show All Shrooms", shrooms_path, class: "button is-small" %>     
+    <%= form_tag(shrooms_path, :method => "get") do %>
+      <%= label_tag(:edible) %>
+      <%= select_tag :edible_filter, options_for_select([true, false], selected: params[:edible_filter]) %>
+      <%= submit_tag("Edible?") %>
+    <% end %>
+    <%= link_to "Show All Shrooms", shrooms_path, class: "button is-small is-primary" %>     
   </div>
     <div class="container is-fluid grid">
       <% @shrooms.each do |shroom| %>
