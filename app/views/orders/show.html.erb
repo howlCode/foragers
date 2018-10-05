@@ -35,10 +35,10 @@
   </h2>
   <br>
 
-
+  <div id="checkout-form">
   <%= form_for @order do |f| %>
   <div class="field is-horizontal">
-    <div class="field-label">
+    <div class="field-label is-normal">
       <%= f.label "Shipping address:", class: "label" %>
     </div>
     <div class="field-body">
@@ -60,7 +60,7 @@
 
 
   <div class="field is-horizontal">
-    <div class="field-label">
+    <div class="field-label is-normal">
       <%= f.label "Payment method:", class: "label" %>
     </div>
     <div class="field-body">
@@ -81,7 +81,7 @@
   </div>
 
   <div class="field is-horizontal">
-    <div class="field-label"></div>
+    <div class="field-label is-normal"></div>
     <div class="field-body">
       <div class="field">
         <div class="control">
@@ -93,5 +93,6 @@
 
 
     <% end %>
+    </div>
   </div>
 </section>
