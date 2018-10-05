@@ -15,10 +15,13 @@
  */
 
 @import "bulma";
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
 * {
-	font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-
+form {
+  width: 30%;
+  margin: 0 auto;
+}

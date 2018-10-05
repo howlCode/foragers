@@ -1,54 +1,97 @@
 <section class="section">
-  <h1 class="has-text-centered title">Checkout</h1>
-  <div class="container is-fluid has-text-centered grid">
+  <div class="container">
+    <h1 class="has-text-centered title">Checkout</h1>
+    <br>
+
+    <div class="columns is-multiline">
       <% @order.order_items.each do |item| %>
-      <div class="checkout-grid-item">
-        <div class="grid-img">    
-          <%= image_tag item.product.image.url(:thumb) %>
-        </div>
-        <p><%= item.product.name %></p>
-        <div class="has-text-centered quantity">
-          <span id="to-grow">Quantity: <%= item.quantity %></span>
-          <p><%= link_to "Add|", order_item_add_path(:id => item), method: :post, class: "is-size-7"  %></p>
-          <p><%= link_to "Subtract", order_item_reduce_path(:id => item), method: :post, class: "is-size-7" %></p>
-        </div>
+      <div class="column is-one-quarter">
+        <%= image_tag item.product.image.url(:thumb), class: "checkout-image" %>
+        <p>
+          <%= item.product.name %>
+        </p>
+        <span class="quantity">Quantity:
+          <%= item.quantity %></span>
+        <span class="button is-primary is-small">
+          <%= link_to "Add", order_item_add_path(:id => item), method: :post, class: "has-text-light"  %>
+        </span>
+        <span class="button is-danger is-small">
+          <%= link_to "Subtract", order_item_reduce_path(:id => item), method: :post, class: "has-text-light" %>
+        </span>
         <% if item.product.stock < item.quantity %>
-            <span class="is-uppercase has-text-danger has-text-weight-bold">Not Enough Stock To Fill Request!</span>
-          <% end %>
-        <p>(Subtotal: <%= number_to_currency item.subtotal %>)</p>
+        <span class="is-uppercase has-text-danger has-text-weight-bold">Not Enough Stock To Fill Request!</span>
+        <% end %>
+        <p>(Subtotal:
+          <%= number_to_currency item.subtotal %>)</p>
         <%= link_to 'Remove item from cart', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-warning is-small" %>
       </div>
       <% end %>
     </div>
-    <br>
-    <div class="has-text-centered">
-      <h2 class="subtitle">Total: <%= number_to_currency @order.total %></h2>
+  </div>
+
+  <br>
+  <h2 class="subtitle has-text-centered">Total:
+    <%= number_to_currency @order.total %>
+  </h2>
+  <br>
+
+
+  <%= form_for @order do |f| %>
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <%= f.label "Shipping address:", class: "label" %>
     </div>
-    <br>
-        <div class="checkout-form">
-        <%= form_for @order do |f| %>
-          <div class="address-selection">
-            <h2>Choose your shipping address:</h2>
-            <% if current_user.addresses.empty? %>
-              <%= link_to 'Add a shipping address', new_address_path %>
-            <% else %>
-              <p><%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} %></p>
-              <p><%= link_to 'Add a different address', new_address_path %></p>
-            <% end %>
-          </div>
-          <div class="payment-selection">
-          <h2>Choose your payment method:</h2>
-            <% if current_user.credit_cards.empty? %>
-              <%= link_to 'Add a payment method', new_credit_card_path %>
-            <% else %>
-              <p><%= f.select :credit_card_id, current_user.credit_cards.collect{|c| [c.to_s, c.id]} %></p>
-              <p><%= link_to 'Add a different payment method', new_credit_card_path %></p>
-          </div>
-            <div class="column is-clearfix confirm-selection">
-              <%= f.submit "Submit Order", class: "button is-primary" %>
-              <%= link_to "Cancel Order", @order, data: { confirm: 'Are you sure?' }, method: :delete, class: "button is-danger" %>
-            </div>
-          <% end %>
+    <div class="field-body">
+      <div class="field">
+        <% if current_user.addresses.empty? %>
+        <%= link_to 'Add a shipping address', new_address_path, class: "button is-info" %>
+        <% else %>
+        <div class="control">
+          <%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]}, class: "input" %>
+        </div>
+        <div class="control">
+          <%= link_to 'Add a different address', new_address_path %>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+
+
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <%= f.label "Payment method:", class: "label" %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <% if current_user.credit_cards.empty? %>
+        <%= link_to 'Add a payment method', new_credit_card_path, class: "button is-info" %>
+        <% else %>
+        <div class="control">
+          <%= f.select :credit_card_id, current_user.credit_cards.collect{|c| [c.to_s, c.id]}, class: "input" %>
+        </div>
+        <div class="control">
+          <%= link_to 'Add a different payment method', new_credit_card_path %>
+        </div>
         <% end %>
+      </div>
     </div>
+
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label"></div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= f.submit "Submit Order", class: "button is-primary is-small" %>
+          <%= link_to "Cancel Order", @order, data: { confirm: 'Are you sure?' }, method: :delete, class: "button is-danger is-small" %>
+        </div>
+      </div>
+    </div>
+
+
+    <% end %>
+  </div>
 </section>
