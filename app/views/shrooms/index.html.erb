@@ -35,7 +35,7 @@
       <div class="column is-one-third swell">
         <%= link_to shroom_path(shroom), remote: true do %> 
         <div class="column-image">
-          <%= image_tag shroom.image.url(:thumb), class: "shroom-image" %>       
+          <%= image_tag shroom.image.url(:medium), class: "shroom-image" %>       
         </div>
         <% if shroom.edible == "true" %>
           <div class="tags">
