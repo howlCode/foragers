@@ -1,7 +1,7 @@
 
 <section class="section">
   <div class="container is-fluid has-text-centered">
-    <h1 class="title">Welcome to the Shroom Hunters Database!</h1>
+    <h1 class="title">Welcome to the Mushroom Database!</h1>
     <h3 class="subtitle">Our user-contributed database is ever growing!</h3>
     <% if user_signed_in? %>
       <span class="button is-medium is-hidden-mobile swell"><%= link_to "Add a shroom!", new_shroom_path %></span>
@@ -15,7 +15,7 @@
   </div>
   <br>
   <div class="container is-fluid has-text-centered"><h3 class="subtitle">Filter Shrooms</h3></div>
-  <div class="container is-fluid has-text-centered grid">
+  <div class="container is-fluid has-text-centered">
     <%= form_tag(shrooms_path, :method => "get") do %>
       <%= label_tag(:genus) %>
       <%= select_tag :genus_filter, options_for_select(Shroom.all.collect { |g| g.genus }.sort, selected: params[:genus_filter]) %>

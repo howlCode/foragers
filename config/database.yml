@@ -27,7 +27,7 @@
 development:
   adapter: postgresql
   host: localhost
-  database: shroom_hunters_development
+  database: foragers_dev
   username: postgres
   password: postgres
   template: template0
@@ -36,7 +36,7 @@ development:
 test:
   adapter: postgresql
   host: localhost
-  database: shroom_hunters_testing
+  database: foragers_test
   username: postgres
   password: postgres
   template: template0
